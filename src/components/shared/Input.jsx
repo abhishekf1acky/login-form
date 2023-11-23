@@ -5,7 +5,7 @@ const Input = ({
   type,
   value,
   onChange,
-  showPassword,
+  isVisible,
   togglePasswordVisibility,
 }) => (
   <div className='w-full'>
@@ -22,10 +22,10 @@ const Input = ({
         value={value}
         onChange={onChange}
       />
-      {(type === 'password' || showPassword === true) && (
+      {(type === 'password' || isVisible === true) && (
         <div className='absolute inset-y-0 right-0 pr-3 flex items-center'>
           <button type='button' onClick={togglePasswordVisibility}>
-            {showPassword ? <HiOutlineEyeOff /> : <HiOutlineEye />}
+            {isVisible ? <HiOutlineEyeOff /> : <HiOutlineEye />}
           </button>
         </div>
       )}

@@ -1,3 +1,5 @@
-export { default as LoginForm } from './LoginForm';
-export { default as Input } from './shared/Input';
-export { default as Button } from './shared/Button';
+import Input from './shared/Input';
+import Button from './shared/Button';
+import LoginForm from './LoginForm';
+
+export { Input, Button, LoginForm };
