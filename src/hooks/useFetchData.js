@@ -12,12 +12,14 @@ const useFetchData = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(url, body, {
+      const response = await axios({
+        url,
+        method,
         headers,
+        data: body,
       });
 
       setData(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log(error);
       setError(error);
