@@ -9,9 +9,14 @@ const HomePage = () => {
   };
 
   return (
-    <button className='bg-blue-500 p-4' onClick={handleLogout}>
-      Logout
-    </button>
+    <div className='w-full min-h-screen flex items-center justify-center'>
+      <button
+        className='bg-blue-700 px-4 py-2 text-white rounded-lg'
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+    </div>
   );
 };
 export default HomePage;
