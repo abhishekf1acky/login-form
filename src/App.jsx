@@ -1,13 +1,21 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { HomePage, LoginPage, ProtectedRoute } from './pages';
+import {
+  AboutPage,
+  HomePage,
+  LoginPage,
+  ProtectedRoute,
+  LayoutPage,
+} from './pages';
 import { store } from './store/store';
 import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <LayoutPage />,
     children: [
+      { path: 'login', element: <LoginPage /> },
       {
         index: true,
         element: (
@@ -16,7 +24,14 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: 'login', element: <LoginPage /> },
+      {
+        path: 'about',
+        element: (
+          <ProtectedRoute>
+            <AboutPage />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);

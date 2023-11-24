@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Footer, Header } from '../components';
 
 const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
@@ -11,6 +12,12 @@ const ProtectedRoute = ({ children }) => {
     if (!isLoggedIn) navigate('/login');
   }, [navigate, isLoggedIn]);
 
-  return children;
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 };
 export default ProtectedRoute;
