@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className='bg-gray-900 text-white'>
       <nav className='w-[90vw] max-w-7xl mx-auto h-16 flex justify-between items-center'>
         <ul className='h-full w-full flex items-center gap-4 capitalize'>
           <Link

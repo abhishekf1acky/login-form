@@ -9,31 +9,21 @@ export const useApi = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
-  const handleLogin = async (username, password) => {
+  const handleLogin = async ({ username, password }) => {
     setIsLoading(true);
     setIsError(false);
 
-    const loginPromise = new Promise((resolve, reject) => {
-      loginUser(username, password)
-        .then((data) => {
-          setData(data);
-          resolve(data);
-        })
-        .catch((error) => {
-          setIsError(true);
-          navigate('/login');
-          reject(error);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    });
-
-    toast.promise(loginPromise, {
-      loading: 'Logging in...',
-      success: 'Login successful',
-      error: (err) => err?.response?.data?.message || 'Something went wrong...',
-    });
+    try {
+      const data = await loginUser(username, password);
+      setData(data);
+      toast.success('Login successful');
+    } catch (error) {
+      setIsError(true);
+      toast.error(error?.response?.data?.message);
+      navigate('/login');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return { isLoading, isError, data, handleLogin };
