@@ -19,7 +19,6 @@ export const useLoginForm = () => {
   });
   const { isLoading, isError, data, handleLogin } = useApi();
   const [rememberMeData, setRememberMeData] = useLocalStorage('rememberMe', {});
-  console.log(rememberMeData);
 
   useEffect(() => {
     if (formData.rememberMe) {

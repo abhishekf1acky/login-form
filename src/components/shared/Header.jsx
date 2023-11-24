@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 import { logout } from '../../store/authSlice';
 import { useDispatch } from 'react-redux';
 import Button from './Button';
@@ -8,8 +9,8 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    toast.success('Logged out successfully');
   };
-
   return (
     <header className='bg-gray-900 text-white'>
       <nav className='w-[90vw] max-w-7xl mx-auto h-16 flex justify-between items-center'>

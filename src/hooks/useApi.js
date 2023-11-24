@@ -16,7 +16,7 @@ export const useApi = () => {
     try {
       const data = await loginUser(username, password);
       setData(data);
-      toast.success('Login successful');
+      toast.success('Login successfully');
     } catch (error) {
       setIsError(true);
       toast.error(error?.response?.data?.message);
